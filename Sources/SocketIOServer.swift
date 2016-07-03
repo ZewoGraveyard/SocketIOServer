@@ -92,7 +92,7 @@ public class SocketIOServer: Responder, Middleware {
 	/// Looks up a namespace
 	public func of(name: String, onConnect: EventListener<SocketIOSocket>.Listen? = nil) -> Namespace {
 		var name = name
-		if !name.hasPrefix("/") {
+		if !name.starts(with: "/") {
 			name = "/" + name
 		}
 		let nsp: Namespace
